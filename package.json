@@ -6,9 +6,51 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "astro check && tsc --noEmit",
+    "check": "bun run typecheck && bun run lint && bun run format:check"
   },
   "dependencies": {
-    "astro": "^5.16.8"
+    "@demark-pro/react-booking-calendar": "^4.0.3",
+    "@stripe/react-stripe-js": "^5.4.1",
+    "@stripe/stripe-js": "^8.6.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "astro": "^5.16.8",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.25.0",
+    "ics": "^3.8.1",
+    "leaflet": "^1.9.4",
+    "node-ical": "^0.22.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-img-mapper": "^2.0.2",
+    "react-leaflet": "^5.0.0",
+    "stripe": "^20.1.2",
+    "tailwindcss": "^4.1.18",
+    "video.js": "^8.23.4",
+    "videojs-vr": "^2.0.0",
+    "yet-another-react-lightbox": "^3.28.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@types/leaflet": "^1.9.21",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.5.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.0.0",
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.3"
   }
 }
