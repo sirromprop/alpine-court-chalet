@@ -293,8 +293,8 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         category: "views",
       },
       {
-        id: "mountain-view-3",
-        alt: "Winter mountain landscape",
+        id: "sundog",
+        alt: "Stunning Sundog on the Mountain",
         category: "views",
       },
 
