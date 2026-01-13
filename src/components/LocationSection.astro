@@ -29,8 +29,7 @@ const poiData = pointsOfInterest.map((poi) => ({
         Location & Nearby
       </h2>
       <p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-600">
-        {city}, {region} — Ski-in/ski-out at Fernie Alpine Resort with easy access
-        to downtown
+        {city}, {region} — Ski-in at Fernie Alpine Resort with easy access to downtown
       </p>
     </div>
 
@@ -256,6 +255,6 @@ const poiData = pointsOfInterest.map((poi) => ({
 
     // Fit bounds to show all markers
     const bounds = L.latLngBounds(poiData.map((poi) => [poi.lat, poi.lng]));
-    map.fitBounds(bounds, { padding: [40, 40] });
+    map.fitBounds(bounds, { padding: [10, 10] });
   });
 </script>
