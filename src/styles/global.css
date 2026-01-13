@@ -12,43 +12,44 @@
   /* Font Family */
   --font-sans: "Raleway", ui-sans-serif, system-ui, sans-serif;
 
-  /* Primary Colors - Deep Blue palette (from house logo) */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-  --color-primary-950: #172554;
+  /* Primary Colors - Deep Espresso Brown (base: #2D1D0F) */
+  --color-primary-50: #f7f4f0;
+  --color-primary-100: #ebe3d8;
+  --color-primary-200: #d4c4ac;
+  --color-primary-300: #b89d78;
+  --color-primary-400: #8f7350;
+  --color-primary-500: #6b5338;
+  --color-primary-600: #523d28;
+  --color-primary-700: #42301d;
+  --color-primary-800: #2d1d0f;
+  --color-primary-900: #221608;
+  --color-primary-950: #130c04;
 
-  /* Accent Colors - Warm Orange (from house logo) */
-  --color-accent-50: #fff7ed;
-  --color-accent-100: #ffedd5;
-  --color-accent-200: #fed7aa;
-  --color-accent-300: #fdba74;
-  --color-accent-400: #fb923c;
-  --color-accent-500: #f97316;
-  --color-accent-600: #ea580c;
-  --color-accent-700: #c2410c;
-  --color-accent-800: #9a3412;
-  --color-accent-900: #7c2d12;
+  /* Accent Colors - Deep Charcoal Slate (from house siding) */
+  --color-accent-50: #f4f6f7;
+  --color-accent-100: #e3e7ea;
+  --color-accent-200: #c9d1d7;
+  --color-accent-300: #a4b1bb;
+  --color-accent-400: #778998;
+  --color-accent-500: #5c6e7d;
+  --color-accent-600: #4f5d6a;
+  --color-accent-700: #444e59;
+  --color-accent-800: #3c444c;
+  --color-accent-900: #2d3339;
+  --color-accent-950: #1a1f24;
 
-  /* Neutral Colors - Slate for text and backgrounds */
-  --color-neutral-50: #f8fafc;
-  --color-neutral-100: #f1f5f9;
-  --color-neutral-200: #e2e8f0;
-  --color-neutral-300: #cbd5e1;
-  --color-neutral-400: #94a3b8;
-  --color-neutral-500: #64748b;
-  --color-neutral-600: #475569;
-  --color-neutral-700: #334155;
-  --color-neutral-800: #1e293b;
-  --color-neutral-900: #0f172a;
-  --color-neutral-950: #020617;
+  /* Neutral Colors - Refined slate for text and backgrounds */
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
+  --color-neutral-950: #030712;
 
   /* Semantic Colors */
   --color-background: var(--color-neutral-50);

@@ -112,9 +112,7 @@ export const property = {
     "A stunning ski-in mountain home featuring Fernie's only indoor squash & multi-sport court and games room, ideal for squash, wallyball, pickleball, pool, badminton, or yoga. 2 living areas with separate kitchens. Enjoy dramatic alpine views, a relaxing outdoor hot tub, and spacious modern design with 5 bedrooms, 5 bathrooms, and 14 sleeping spots for flexible comfort. Two fireplaces, large windows, and easy slope access complete this exceptional retreat.",
   shortDescription:
     "Luxury 5-bedroom ski chalet with indoor sports court, hot tub, and ski-in/ski-out access in Fernie, B.C.",
-  fullDescription: `The Space
-
-Welcome to Fernie Alpine Court Chalet, a one-of-a-kind mountain retreat where recreation and relaxation meet in perfect balance. As the only chalet at Fernie Alpine Resort with a full-size indoor squash court, this property redefines the ski-in, ski-out experience with thoughtful design, spectacular views, and an unmatched range of amenities.
+  fullDescription: `Welcome to Fernie Alpine Court Chalet, a one-of-a-kind mountain retreat where recreation and relaxation meet in perfect balance. As the only chalet at Fernie Alpine Resort with a full-size indoor squash court, this property redefines the ski-in, ski-out experience with thoughtful design, spectacular views, and an unmatched range of amenities.
 
 Framed by the dramatic peaks of the Lizard Range, the chalet offers true ski-in access and expansive mountain views through floor-to-ceiling windows. After a day on the slopes, unwind in the outdoor hot tub, warm up by the fire, or simply take in the alpine glow from the Great Room's plush seating. Every space is crafted to connect modern comfort with mountain serenity.
 
@@ -224,6 +222,24 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         alt: "Dining area with mountain views",
         category: "dining",
       },
+
+      // Recreation
+      {
+        id: "sports-court-1",
+        alt: "Indoor sports court with table tennis setup",
+        category: "recreation",
+      },
+      {
+        id: "sports-court-2",
+        alt: "Indoor sports court with volleyball net",
+        category: "recreation",
+      },
+      {
+        id: "recreation-room",
+        alt: "Recreation room with pool table",
+        category: "recreation",
+      },
+
       {
         id: "loft",
         alt: "Loft area for reading and games",
@@ -242,32 +258,9 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         category: "suite",
       },
 
-      // Bedrooms (placeholders - to be curated)
-      { id: "bedroom-1", alt: "Bedroom 1", category: "bedroom" },
-      { id: "bedroom-2", alt: "Bedroom 2", category: "bedroom" },
-      { id: "bedroom-3-master", alt: "Master bedroom", category: "bedroom" },
-      { id: "bedroom-4", alt: "Bedroom 4", category: "bedroom" },
-      { id: "bedroom-5", alt: "Bedroom 5", category: "bedroom" },
-
-      // Recreation
-      {
-        id: "sports-court-1",
-        alt: "Indoor sports court with table tennis setup",
-        category: "recreation",
-      },
-      {
-        id: "sports-court-2",
-        alt: "Indoor sports court with volleyball net",
-        category: "recreation",
-      },
       {
         id: "sports-bar",
         alt: "Sports viewing area with bar seating",
-        category: "recreation",
-      },
-      {
-        id: "recreation-room",
-        alt: "Recreation room with pool table",
         category: "recreation",
       },
       {
@@ -311,6 +304,14 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         alt: "Outdoor patio with mountain views",
         category: "outdoor",
       },
+
+      // Bedrooms (placeholders - to be curated)
+      { id: "bedroom-1", alt: "Bedroom 1", category: "bedroom" },
+      { id: "bedroom-2", alt: "Bedroom 2", category: "bedroom" },
+      { id: "bedroom-3-master", alt: "Master bedroom", category: "bedroom" },
+      { id: "bedroom-4", alt: "Bedroom 4", category: "bedroom" },
+      { id: "bedroom-5", alt: "Bedroom 5", category: "bedroom" },
+
       {
         id: "mudroom",
         alt: "Ski boot room and mudroom with built-in storage",

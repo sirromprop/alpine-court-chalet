@@ -1,17 +1,17 @@
-import { useState, useRef, useEffect } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import {
-  Bed,
   Bath,
-  Users,
-  Layers,
+  Bed,
   Check,
   ChevronDown,
   ChevronUp,
-  X,
   Info,
+  Layers,
+  Users,
+  X,
 } from "lucide-react";
-import { FadeInView, CountUp } from "./animations";
+import { useEffect, useRef, useState } from "react";
+import { CountUp, FadeInView } from "./animations";
 
 interface Amenity {
   name: string;
@@ -104,7 +104,7 @@ export default function PropertyOverviewAnimated({
             className="mt-4 inline-flex items-center gap-2 font-medium text-primary-600 transition-colors hover:text-primary-700"
           >
             <Info className="h-4 w-4" />
-            Read more about this space
+            Read more about the Chalet
           </button>
         </FadeInView>
 
@@ -129,28 +129,32 @@ export default function PropertyOverviewAnimated({
 
               {/* Dialog */}
               <motion.div
-                className="relative max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl sm:p-8"
+                className="relative flex max-h-[85vh] w-full max-w-3xl flex-col rounded-2xl bg-white shadow-2xl"
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                {/* Close Button */}
-                <button
-                  type="button"
-                  onClick={() => setShowFullDescription(false)}
-                  className="absolute right-4 top-4 rounded-full p-2 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-
-                {/* Content */}
-                <div className="prose prose-neutral max-w-none">
+                {/* Header */}
+                <div className="flex items-center justify-between border-b border-neutral-100 px-6 py-4 sm:px-8">
                   <h2 className="text-2xl font-bold text-neutral-900">
-                    About This Space
+                    About The Chalet
                   </h2>
-                  <div className="mt-4 space-y-4 text-neutral-600 whitespace-pre-line">
-                    {fullDescription}
+                  <button
+                    type="button"
+                    onClick={() => setShowFullDescription(false)}
+                    className="rounded-full p-2 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-600"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                {/* Scrollable Content */}
+                <div className="flex-1 overflow-y-auto px-8 py-8 sm:px-8 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary-400 hover:[&::-webkit-scrollbar-thumb]:bg-primary-500">
+                  <div className="prose prose-neutral max-w-none">
+                    <div className="space-y-4 text-neutral-600 whitespace-pre-line">
+                      {fullDescription}
+                    </div>
                   </div>
                 </div>
               </motion.div>
