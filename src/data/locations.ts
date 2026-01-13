@@ -30,7 +30,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.46029,
     lng: -115.07936,
     category: "accommodation",
-    imageId: "locations/alpine-court-chalet",
+    imageId: "exterior-front",
     icon: "House",
   },
   {
@@ -41,7 +41,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.4602,
     lng: -115.09695,
     category: "skiing",
-    imageId: "locations/fernie-alpine-resort",
+    imageId: "mountain-view-2",
     icon: "Mountain",
   },
   {
@@ -52,7 +52,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.5,
     lng: -115.0631,
     category: "town",
-    imageId: "locations/downtown-fernie",
+    imageId: "downtown-fernie",
     icon: "Building2",
   },
   {
@@ -63,7 +63,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.52642,
     lng: -115.04743,
     category: "dining",
-    imageId: "locations/fernie-brewing",
+    imageId: "fernie-brewing",
     icon: "Beer",
   },
   {
@@ -74,7 +74,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.46277,
     lng: -115.08668,
     category: "dining",
-    imageId: "locations/griz-bar",
+    imageId: "griz-bar",
     icon: "UtensilsCrossed",
   },
   {
@@ -85,7 +85,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.51709,
     lng: -115.04842,
     category: "activity",
-    imageId: "locations/fernie-golf",
+    imageId: "fernie-golf",
     icon: "Flag",
   },
   {
@@ -96,7 +96,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.50294,
     lng: -115.06167,
     category: "attraction",
-    imageId: "locations/fernie-museum",
+    imageId: "fernie-museum",
     icon: "Landmark",
   },
   {
@@ -107,7 +107,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.4894,
     lng: -115.10482,
     category: "activity",
-    imageId: "locations/mount-fernie-park",
+    imageId: "mount-fernie-park",
     icon: "Bike",
   },
   {
@@ -118,7 +118,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     lat: 49.48639,
     lng: -115.09002,
     category: "activity",
-    imageId: "locations/fernie-nordic",
+    imageId: "fernie-nordic",
     icon: "Snowflake",
   },
 ];
