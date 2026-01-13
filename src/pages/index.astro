@@ -3,9 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import FooterAnimated from "../components/FooterAnimated";
 import HeroVideo from "../components/HeroVideo.astro";
+import ContactSection from "../components/ContactSection.astro";
 import PropertyOverviewAnimated from "../components/PropertyOverviewAnimated";
 import PhotoGallery from "../components/PhotoGallery";
-import ContactSectionAnimated from "../components/ContactSectionAnimated";
 import { property, getPrimaryContact } from "../data/property";
 
 const primaryContact = getPrimaryContact();
@@ -24,11 +24,7 @@ const primaryContact = getPrimaryContact();
       amenities={property.amenities}
     />
     <PhotoGallery client:load images={property.images.gallery} />
-    <ContactSectionAnimated
-      client:visible
-      propertyName={property.name}
-      primaryContact={primaryContact}
-    />
+    <ContactSection />
   </main>
 
   <FooterAnimated

@@ -1,124 +1,68 @@
 ---
-import { property, getPrimaryContact, getOwnerContact } from "../data/property";
-import Mail from "@lucide/astro/icons/mail";
-import Phone from "@lucide/astro/icons/phone";
-import MessageCircle from "@lucide/astro/icons/message-circle";
-import FileText from "@lucide/astro/icons/file-text";
-import Receipt from "@lucide/astro/icons/receipt";
+import { property, getPrimaryContact } from "../data/property";
+import { cloudinaryVideo, cloudinaryUrl } from "../lib/cloudinary";
+import ContactSectionAnimated from "./ContactSectionAnimated";
+
+interface Props {
+  videoId?: string;
+  posterImageId?: string;
+}
+
+const { videoId = "skiing-trees-video", posterImageId = property.images.hero } =
+  Astro.props;
 
 const primaryContact = getPrimaryContact();
-const ownerContact = getOwnerContact();
+const videoUrl = cloudinaryVideo(videoId, "q_auto");
+const posterUrl = cloudinaryUrl(posterImageId, "w_1920,q_auto,f_auto");
 ---
 
-<section id="contact" class="scroll-mt-8 bg-neutral-50 py-16 sm:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
-    <div class="text-center">
-      <h2
-        class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl"
-      >
-        Book Your Stay
-      </h2>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-600">
-        Ready to experience {property.name}? Contact us directly to check
-        availability and reserve your dates.
-      </p>
-    </div>
+<section
+  id="contact"
+  class="relative scroll-mt-8 overflow-hidden py-16 sm:py-24"
+>
+  <video
+    id="contact-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    disablepictureinpicture
+    poster={posterUrl}
+    class="contact-video absolute inset-0 h-full w-full object-cover"
+  >
+    <source src={`${videoUrl}.webm`} type="video/webm" />
+    <source src={`${videoUrl}.mp4`} type="video/mp4" />
+    <img
+      src={posterUrl}
+      alt="Skiing through trees"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  </video>
 
-    <!-- Contact Cards -->
-    <div class="mt-12 grid gap-8 md:grid-cols-2">
-      <!-- Property Manager Card (Primary) -->
-      <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-        <div class="flex items-center gap-2">
-          <span
-            class="rounded-full bg-primary-100 px-3 py-1 text-xs font-medium text-primary-700"
-          >
-            Primary Contact
-          </span>
-        </div>
-        <h3 class="mt-4 text-xl font-semibold text-neutral-900">
-          {primaryContact.name}
-        </h3>
-        <p class="mt-1 text-sm text-neutral-500">Property Manager</p>
+  <div class="absolute inset-0 bg-black/60"></div>
 
-        <div class="mt-6 space-y-4">
-          <a
-            href={`mailto:${primaryContact.email}`}
-            class="flex items-center gap-3 rounded-lg bg-neutral-50 px-4 py-3 text-neutral-700 transition-colors hover:bg-primary-50 hover:text-primary-700"
-          >
-            <Mail class="h-5 w-5 flex-shrink-0" />
-            <span class="text-sm font-medium">{primaryContact.email}</span>
-          </a>
-          <a
-            href={`tel:${primaryContact.phone.replace(/\s/g, "")}`}
-            class="flex items-center gap-3 rounded-lg bg-neutral-50 px-4 py-3 text-neutral-700 transition-colors hover:bg-primary-50 hover:text-primary-700"
-          >
-            <Phone class="h-5 w-5 flex-shrink-0" />
-            <span class="text-sm font-medium">{primaryContact.phone}</span>
-          </a>
-          <a
-            href={`sms:${primaryContact.phone.replace(/\s/g, "")}`}
-            class="flex items-center gap-3 rounded-lg bg-primary-600 px-4 py-3 text-white transition-colors hover:bg-primary-700"
-          >
-            <MessageCircle class="h-5 w-5 flex-shrink-0" />
-            <span class="text-sm font-medium">Send a Text Message</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Owner Card -->
-      {
-        ownerContact && (
-          <div class="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-            <div class="flex items-center gap-2">
-              <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600">
-                Owner
-              </span>
-            </div>
-            <h3 class="mt-4 text-xl font-semibold text-neutral-900">
-              {ownerContact.name}
-            </h3>
-            <p class="mt-1 text-sm text-neutral-500">{property.company.name}</p>
-
-            <div class="mt-6 space-y-4">
-              <a
-                href={`mailto:${ownerContact.email}`}
-                class="flex items-center gap-3 rounded-lg bg-neutral-50 px-4 py-3 text-neutral-700 transition-colors hover:bg-primary-50 hover:text-primary-700"
-              >
-                <Mail class="h-5 w-5 flex-shrink-0" />
-                <span class="text-sm font-medium">{ownerContact.email}</span>
-              </a>
-              <a
-                href={`tel:${ownerContact.phone.replace(/\s/g, "")}`}
-                class="flex items-center gap-3 rounded-lg bg-neutral-50 px-4 py-3 text-neutral-700 transition-colors hover:bg-primary-50 hover:text-primary-700"
-              >
-                <Phone class="h-5 w-5 flex-shrink-0" />
-                <span class="text-sm font-medium">{ownerContact.phone}</span>
-              </a>
-            </div>
-          </div>
-        )
-      }
-    </div>
-
-    <!-- Quick Links -->
-    <div
-      class="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
-    >
-      <a
-        href="/house-rules"
-        class="inline-flex items-center gap-2 rounded-lg border border-neutral-300 bg-white px-6 py-3 font-medium text-neutral-700 transition-colors hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
-      >
-        <FileText class="h-5 w-5" />
-        View House Rules
-      </a>
-      <a
-        href="/house-rules#booking-terms"
-        class="inline-flex items-center gap-2 rounded-lg border border-neutral-300 bg-white px-6 py-3 font-medium text-neutral-700 transition-colors hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
-      >
-        <Receipt class="h-5 w-5" />
-        Booking Terms
-      </a>
-    </div>
-  </div>
+  <ContactSectionAnimated
+    client:visible
+    propertyName={property.name}
+    primaryContact={primaryContact}
+  />
 </section>
+
+<style>
+  .contact-video::-webkit-media-controls {
+    display: none !important;
+  }
+  .contact-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+  }
+  .contact-video::-webkit-media-controls-panel {
+    display: none !important;
+  }
+</style>
+
+<script>
+  const video = document.getElementById("contact-video") as HTMLVideoElement;
+  if (video) {
+    video.play().catch(() => {});
+  }
+</script>

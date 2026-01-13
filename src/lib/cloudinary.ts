@@ -12,5 +12,5 @@ export function cloudinaryVideo(
   id: string,
   transform: string = "q_auto"
 ): string {
-  return `${BASE_URL}/video/upload/${transform}/${id}.mp4`;
+  return `${BASE_URL}/video/upload/${transform}/${id}`;
 }
