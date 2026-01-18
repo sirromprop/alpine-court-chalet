@@ -111,10 +111,10 @@ export const property = {
   name: "Alpine Court Chalet",
   tagline: "Luxury Ski Chalet in Fernie, B.C.",
   description:
-    "Welcome to Fernie Alpine Court Chalet, a one-of-a-kind mountain retreat where recreation and relaxation meet in perfect balance. As the only chalet at Fernie Alpine Resort with a full-size indoor squash court, this property redefines the ski-in, ski-out experience with thoughtful design, spectacular views, and an unmatched range of amenities.",
+    "Welcome to Fernie Alpine Court Chalet, a one-of-a-kind mountain retreat where recreation and relaxation meet in perfect balance. As the only chalet at Fernie Alpine Resort with a full-size indoor squash court, this property redefines the ski-in experience with thoughtful design, spectacular views, and an unmatched range of amenities.",
   shortDescription:
-    "Luxury 5-bedroom ski chalet with indoor sports court, hot tub, and ski-in/ski-out access in Fernie, B.C.",
-  fullDescription: `Welcome to Fernie Alpine Court Chalet, a one-of-a-kind mountain retreat where recreation and relaxation meet in perfect balance. As the only chalet at Fernie Alpine Resort with a full-size indoor squash court, this property redefines the ski-in, ski-out experience with thoughtful design, spectacular views, and an unmatched range of amenities.
+    "Luxury 5-bedroom ski chalet with indoor sports court, hot tub, and ski-in access in Fernie, B.C.",
+  fullDescription: `Welcome to Fernie Alpine Court Chalet, a one-of-a-kind mountain retreat where recreation and relaxation meet in perfect balance. As the only chalet at Fernie Alpine Resort with a full-size indoor squash court, this property redefines the ski-in experience with thoughtful design, spectacular views, and an unmatched range of amenities.
 
 Framed by the dramatic peaks of the Lizard Range, the chalet offers true ski-in access and expansive mountain views through floor-to-ceiling windows. After a day on the slopes, unwind in the outdoor hot tub, warm up by the fire, or simply take in the alpine glow from the Great Room's plush seating. Every space is crafted to connect modern comfort with mountain serenity.
 
@@ -369,7 +369,7 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
     {
       category: "Skiing & Outdoors",
       items: [
-        { name: "Ski-In/Ski-Out Access", schemaName: "skiInSkiOut" },
+        { name: "Ski-In Access", schemaName: "skiInSkiOut" },
         { name: "Ski Storage & Boot Room", schemaName: "skiStorage" },
         { name: "Hot Tub", schemaName: "hotTub" },
         { name: "Garage (2 Cars)", schemaName: "parking" },
@@ -434,7 +434,7 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
 
   // Highlight amenities for hero/overview sections
   highlightAmenities: [
-    "Ski-In/Ski-Out",
+    "Ski-In",
     "Indoor Sports Court",
     "Hot Tub",
     "5 Bedrooms",
@@ -444,7 +444,7 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
 
   // Featured amenities for animated hero cycling (priority order, sports scattered)
   featuredAmenities: [
-    "Ski-In/Ski-Out at Fernie Alpine Resort",
+    "Ski-In at Fernie Alpine Resort",
     "Full-Size Indoor Sports Court",
     "Stunning Rocky Mountain Views",
     "Private Outdoor Hot Tub",
@@ -551,7 +551,7 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
   seo: {
     title: "Alpine Court Chalet | Luxury Ski Chalet in Fernie, B.C.",
     description:
-      "Book Alpine Court Chalet, a luxury 5-bedroom ski-in/ski-out chalet in Fernie, British Columbia. Features indoor sports court, hot tub, and stunning Rocky Mountain views. Sleeps 10.",
+      "Book Alpine Court Chalet, a luxury 5-bedroom ski-in chalet in Fernie, British Columbia. Features indoor sports court, hot tub, and stunning Rocky Mountain views. Sleeps 10.",
     keywords: [
       "Fernie ski chalet",
       "Fernie vacation rental",

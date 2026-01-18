@@ -26,7 +26,7 @@ export const pointsOfInterest: PointOfInterest[] = [
     id: "chalet",
     name: "Alpine Court Chalet",
     description:
-      "Your luxury ski-in/ski-out home base with private squash court, hot tub, and stunning mountain views.",
+      "Your luxury ski-in home base with private squash court, hot tub, and stunning mountain views.",
     lat: 49.46029,
     lng: -115.07936,
     category: "accommodation",
