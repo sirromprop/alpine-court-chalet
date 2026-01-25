@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { FileText, Mail, MessageCircle, Phone, Receipt } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import { useRef } from "react";
 import { FadeInView } from "./animations";
 
@@ -81,7 +81,7 @@ export default function ContactSectionAnimated({
         </div>
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
         initial={{ opacity: 0, y: 20 }}
         animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ export default function ContactSectionAnimated({
           <Receipt className="h-5 w-5" />
           Booking Terms
         </a>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }
