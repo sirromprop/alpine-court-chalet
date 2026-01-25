@@ -1,6 +1,6 @@
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
+import { useRef } from "react";
 
 interface ContactPerson {
   name: string;
@@ -37,7 +37,7 @@ const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/#gallery", label: "Gallery" },
   { href: "/#amenities", label: "Amenities" },
-  { href: "/house-rules", label: "House Rules" },
+  // { href: "/house-rules", label: "House Rules" },
   { href: "/#contact", label: "Contact" },
 ];
 
