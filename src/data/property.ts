@@ -350,14 +350,14 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
       category: "Recreation & Entertainment",
       items: [
         { name: "Private Indoor Sports Court", schemaName: "sportsCourt" },
-        { name: "Competition Squash Court", schemaName: "squashCourt" },
+        { name: "Professionally Laid Squash Court", schemaName: "squashCourt" },
         {
           name: "Full Size Pickleball Court (coming soon)",
           schemaName: "pickleballCourt",
         },
         { name: "Integrated Audio System", schemaName: "soundSystem" },
         { name: "Game Room with Pool Table", schemaName: "poolTable" },
-        { name: "Professional Table Tennis", schemaName: "tableTennis" },
+        { name: "Table Tennis", schemaName: "tableTennis" },
         {
           name: "Walleyball & Volleyball",
           schemaName: "volleyballCourt",
