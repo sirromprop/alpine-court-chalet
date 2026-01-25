@@ -383,12 +383,16 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
           schemaName: "skiAccess",
         },
         {
-          name: "Panoramic Rocky Mountain Vistas",
+          name: "Panoramic Mountain Vistas",
           schemaName: "mountainViews",
         },
         {
-          name: "Private Outdoor Hot Tub with Mountain Views",
+          name: "Outdoor Hot Tub with Mountain Views",
           schemaName: "hotTub",
+        },
+        {
+          name: "Covered Balcony & Terraces",
+          schemaName: "balconyTerrace",
         },
         {
           name: "Secure Indoor Ski Locker",
