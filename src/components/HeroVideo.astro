@@ -16,6 +16,14 @@ const posterUrl = cloudinaryUrl(posterImageId, "w_1920,q_auto,f_auto");
 ---
 
 <section class="relative h-screen w-full overflow-hidden">
+  <!-- Poster Image Background (fallback for when video doesn't autoplay) -->
+  <img
+    src={posterUrl}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+
   <!-- Video Background -->
   <video
     id="hero-video"
@@ -24,15 +32,9 @@ const posterUrl = cloudinaryUrl(posterImageId, "w_1920,q_auto,f_auto");
     loop
     playsinline
     disablepictureinpicture
-    poster={posterUrl}
     class="hero-video absolute inset-0 h-full w-full object-cover"
   >
     <source src={videoUrl} type="video/mp4" />
-    <img
-      src={posterUrl}
-      alt={`${property.name} exterior`}
-      class="absolute inset-0 h-full w-full object-cover"
-    />
   </video>
 
   <!-- Gradient Overlay -->
