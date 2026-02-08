@@ -68,6 +68,7 @@ interface PropertyImages {
     id: string;
     alt: string;
     category?: string;
+    caption?: string;
   }>;
 }
 
@@ -161,7 +162,7 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
   location: {
     address: {
       street: "5587 Currie Bowl Wy",
-      city: "East Kootenay A",
+      city: "Fernie Alpine Resort, East Kootenay",
       region: "British Columbia",
       postalCode: "V0B 1M6",
       country: "Canada",
@@ -208,11 +209,13 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         id: "exterior-front",
         alt: "Chalet front exterior view",
         category: "exterior",
+        caption: "Welcome home after a day on the slopes",
       },
       {
         id: "exterior-winter",
         alt: "Chalet exterior with snow-covered mountains",
         category: "exterior",
+        caption: "Nestled in the Lizard Range with ski-in access",
       },
 
       // Main Living Spaces
@@ -220,16 +223,19 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         id: "living-room-main",
         alt: "Main living room with fireplace and mountain views",
         category: "living",
+        caption: "Gather by the fire after a powder day",
       },
       {
         id: "kitchen",
         alt: "Main kitchen with large island seating 4",
         category: "kitchen",
+        caption: "Chef's kitchen with island seating for 4",
       },
       {
         id: "dining-room",
         alt: "Dining area with mountain views",
         category: "dining",
+        caption: "Seat 12 for family dinners with mountain views",
       },
 
       // Recreation
@@ -237,6 +243,7 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         id: "sports-court-1",
         alt: "Indoor sports court with volleyball net",
         category: "recreation",
+        caption: "Volleyball, badminton, or pickleball - your pick",
       },
       // {
       //   id: "sports-court-2",
@@ -247,17 +254,20 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         id: "sports-court-3",
         alt: "Indoor sports court with table tennis setup",
         category: "recreation",
+        caption: "Table tennis under the lights",
       },
       {
         id: "recreation-room",
         alt: "Recreation room with pool table",
         category: "recreation",
+        caption: "Challenge friends to a game of pool",
       },
 
       {
         id: "loft",
         alt: "Loft area for reading and games",
         category: "living",
+        caption: "Cozy reading nook with games for all ages",
       },
 
       // Suite (Separate Living Area)
@@ -265,24 +275,28 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         id: "suite-living-room",
         alt: "Suite living room with fireplace",
         category: "suite",
+        caption: "Private suite with its own fireplace",
       },
       {
         id: "suite-kitchen",
         alt: "Suite kitchen with full amenities",
         category: "suite",
+        caption: "Second full kitchen for flexible meal prep",
       },
 
       {
         id: "sports-closet",
         alt: "Sports equipment storage with rackets and gear",
         category: "recreation",
+        caption: "All equipment provided - just bring your game",
       },
 
       // Hot Tub
       {
         id: "hot-tub",
-        alt: "Private hot tub on covered deck",
+        alt: "Hot tub on covered deck",
         category: "outdoor",
+        caption: "Soak under the stars after your adventures",
       },
 
       // Views
@@ -290,26 +304,31 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         id: "view-from-house",
         alt: "Mountain view from the chalet",
         category: "views",
+        caption: "Wake up to these mountain views",
       },
       {
         id: "mountain-view-1",
         alt: "Scenic mountain vista from Fernie Alpine Resort",
         category: "views",
+        caption: "The Lizard Range in all its glory",
       },
       {
         id: "mountain-view-2",
         alt: "Fernie Alpine Resort with Chair Lift",
         category: "views",
+        caption: "Fernie Alpine Resort - just steps away",
       },
       {
         id: "sundog",
         alt: "Stunning Sundog on the Mountain",
         category: "views",
+        caption: "Nature's light show over the peaks",
       },
       {
         id: "kitchen-with-chef",
         alt: "Professional Chef preparing meal in kitchen",
         category: "kitchen",
+        caption: "Private chef services available",
       },
 
       // Outdoor & Amenities
@@ -317,24 +336,52 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         id: "patio-bbq",
         alt: "Outdoor patio with mountain views",
         category: "outdoor",
+        caption: "Al fresco dining with a view",
       },
 
-      // Bedrooms (placeholders - to be curated)
-      { id: "bedroom-1", alt: "Bedroom 1", category: "bedroom" },
-      { id: "bedroom-2", alt: "Bedroom 2", category: "bedroom" },
-      { id: "bedroom-3-master", alt: "Master bedroom", category: "bedroom" },
-      { id: "bedroom-4", alt: "Bedroom 4", category: "bedroom" },
-      { id: "bedroom-5", alt: "Bedroom 5", category: "bedroom" },
+      // Bedrooms
+      {
+        id: "bedroom-1",
+        alt: "Bedroom 1",
+        category: "bedroom",
+        caption: "Rest easy in premium linens",
+      },
+      {
+        id: "bedroom-2",
+        alt: "Bedroom 2",
+        category: "bedroom",
+        caption: "Flexible twin or king configuration",
+      },
+      {
+        id: "bedroom-3-master",
+        alt: "Master bedroom",
+        category: "bedroom",
+        caption: "Master retreat with mountain views",
+      },
+      {
+        id: "bedroom-4",
+        alt: "Bedroom 4",
+        category: "bedroom",
+        caption: "Comfortable quarters on the lower level",
+      },
+      {
+        id: "bedroom-5",
+        alt: "Bedroom 5",
+        category: "bedroom",
+        caption: "Quiet corner for restful sleep",
+      },
 
       {
         id: "mudroom",
         alt: "Ski boot room and mudroom with built-in storage",
         category: "amenities",
+        caption: "Heated boot room keeps gear ready",
       },
       {
         id: "garage",
         alt: "2-car garage with ski rack storage",
         category: "amenities",
+        caption: "Secure 2-car garage with ski storage",
       },
     ],
   } satisfies PropertyImages,
@@ -349,22 +396,14 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
     {
       category: "Recreation & Entertainment",
       items: [
-        { name: "Private Indoor Sports Court", schemaName: "sportsCourt" },
-        { name: "Professionally Laid Squash Court", schemaName: "squashCourt" },
         {
-          name: "Walleyball/Volleyball, Mini Padel, Mini Pickleball",
-          schemaName: "volleyballCourt",
+          name: "Indoor Sports Court (Supports Multiple Games)",
+          schemaName: "sportsCourt",
         },
-        {
-          name: "Yoa Mats & Free Weights",
-          schemaName: "exerciseEquipment",
-        },
-        // {
-        //   name: "Full Size Pickleball Court (coming soon)",
-        //   schemaName: "pickleballCourt",
-        // },
-        { name: "Sonos Audio System Throughout", schemaName: "soundSystem" },
+        { name: "Professional Squash Court", schemaName: "squashCourt" },
+        { name: "Yoga Mats & Free Weights", schemaName: "exerciseEquipment" },
         { name: "Pool Table & Table Tennis", schemaName: "tableTennis" },
+        { name: "Sonos Audio System Throughout", schemaName: "soundSystem" },
         {
           name: "Multiple Large-Screen Smart TVs",
           schemaName: "television",
@@ -388,22 +427,13 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
           name: "Panoramic Mountain Vistas",
           schemaName: "mountainViews",
         },
+        { name: "Sleds and Snowshoes", schemaName: "winterEquipment" },
+        { name: "Outdoor Hot Tub", schemaName: "hotTub" },
         {
-          name: "Outdoor Hot Tub with Mountain Views",
-          schemaName: "hotTub",
-        },
-        {
-          name: "Covered Balcony & Terraces",
-          schemaName: "balconyTerrace",
-        },
-        {
-          name: "Secure Indoor Ski Locker",
+          name: "Secure Indoor Ski, Board & Bike Storage",
           schemaName: "skiStorage",
         },
-        {
-          name: "Two-Car Private Garage & Ample Parking",
-          schemaName: "parking",
-        },
+        { name: "Two-Car Private Garage", schemaName: "parking" },
         { name: "Premium Outdoor Gas BBQ", schemaName: "barbecue" },
         { name: "Al Fresco Dining Terrace", schemaName: "outdoorDining" },
       ],
@@ -412,23 +442,25 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
       category: "Gourmet Kitchen & Dining",
       items: [
         {
-          name: "Dual Chef's Kitchens with Premium Appliances",
+          name: "Chef's Kitchen with Premium Appliances",
           schemaName: "kitchen",
         },
+        {
+          name: "Industrial Style Gas Range & Oven",
+          schemaName: "stove",
+        },
+        { name: "Additional Kitchen", schemaName: "secondKitchen" },
         { name: "Climate-Controlled Wine Fridge", schemaName: "wineFridge" },
         {
           name: "Dining Table Seating for Twelve",
           schemaName: "diningTable",
         },
-        { name: "Artisan Coffee Selection Provided", schemaName: "coffee" },
-        { name: "Dishwasher", schemaName: "dishwasher" },
-        { name: "Microwave", schemaName: "microwave" },
+        { name: "Artisan Ground Coffee", schemaName: "coffee" },
+        { name: "Nespresso Machine", schemaName: "coffeeMaker" },
         {
-          name: "Professional Gas Range & Oven",
-          schemaName: "stove",
+          name: "Personal Chef Available on Request",
+          schemaName: "chef",
         },
-        { name: "Espresso & Coffee Bar", schemaName: "coffeeMaker" },
-        { name: "Electric Kettle", schemaName: "kettle" },
       ],
     },
     {
@@ -438,24 +470,26 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
         { name: "Heating & Air Conditioning", schemaName: "airConditioning" },
         { name: "Radiant Floor Heating", schemaName: "heating" },
         { name: "Elegant Gas Fireplaces", schemaName: "fireplace" },
-        { name: "Personal Chef Available Upon Request", schemaName: "chef" },
+        {
+          name: "5 Bedrooms with Private & Shared Bathrooms",
+          schemaName: "bedrooms",
+        },
+        { name: "Soaker Tub", schemaName: "soakerTub" },
+        { name: "Quality Bed Linens & Plush Towels", schemaName: "bedLinens" },
+        { name: "Professional Hair Dryers", schemaName: "hairDryer" },
         { name: "Full-Size Washer & Dryer", schemaName: "washerDryer" },
-        { name: "Quality Bed Linens & Towels", schemaName: "bedLinens" },
-        { name: "Professional Hair Dryer", schemaName: "hairDryer" },
+        { name: "Quiet Residential Cul-de-sac", schemaName: "quietLocation" },
       ],
     },
     {
       category: "Family Amenities",
       items: [
-        { name: "Pack 'n Play Travel Crib", schemaName: "travelCrib" },
         { name: "High Chair", schemaName: "highChair" },
+        { name: "Pack 'n Play Travel Crib", schemaName: "travelCrib" },
+        { name: "Children's Books and Games", schemaName: "childrensToys" },
         {
-          name: "Children's Dishes and Utensils",
-          schemaName: "childrensDishes",
-        },
-        {
-          name: "Children's Games",
-          schemaName: "childrensToys",
+          name: "Split King Beds Configurable to Twins",
+          schemaName: "flexibleBeds",
         },
       ],
     },
@@ -467,16 +501,10 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
           name: "Carbon Monoxide Monitoring System",
           schemaName: "carbonMonoxideAlarm",
         },
-        { name: "Fire Suppression Equipment", schemaName: "fireExtinguisher" },
-        { name: "First Aid Kit", schemaName: "firstAidKit" },
-        {
-          name: "24/7 Exterior Security Surveillance",
-          schemaName: "securityCameras",
-        },
-        {
-          name: "Noise Monitoring System",
-          schemaName: "noiseMonitor",
-        },
+        { name: "Fire Extinguishers", schemaName: "fireExtinguisher" },
+        { name: "First Aid Box in Kitchens", schemaName: "firstAidKit" },
+        { name: "Exterior Security Cameras", schemaName: "securityCameras" },
+        { name: "Noise Decibel Monitoring", schemaName: "noiseMonitor" },
       ],
     },
   ] satisfies AmenityCategory[],
@@ -495,11 +523,10 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
   featuredAmenities: [
     "Ski-In at Fernie Alpine Resort",
     "Professional Sports Court",
-    "Stunning Rocky Mountain Views",
-    "Private Outdoor Hot Tub",
-    "Easy access to Chair Lifts and Trails",
+    "Outdoor Hot Tub",
+    "Easy Access to Chair Lifts and Resort",
     "Pool Table & Table Tennis",
-    "Spectacular Mountain Views",
+    "Stunning Mountain Views",
   ],
 
   // Company & Contact Info
@@ -539,10 +566,10 @@ Fernie is a playground for outdoor and cultural adventures. Hike, ski, fly fish,
       "Quiet hours: 10:00 PM – 7:00 AM (Mountain Time)",
     ],
     sportsCourtRules: [
+      "Proper, non-marking athletic footwear required at all times",
       "Recreational use by registered guests only",
       "Guests assume full responsibility for personal injury or damage",
       "No glass containers, food, or alcohol on the court",
-      "Proper, non-marking athletic footwear required at all times",
       "No hanging, climbing, or tampering with nets, hoops, walls, or equipment",
       "Children must be supervised at all times",
       "Only equipment provided by the Owner may be used—hockey pucks, hard balls, and other non-approved items are strictly prohibited",

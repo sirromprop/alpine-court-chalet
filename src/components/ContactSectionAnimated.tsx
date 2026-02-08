@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { Mail, MessageCircle, Phone } from "lucide-react";
 import { useRef } from "react";
 import { FadeInView } from "./animations";
+import AvailabilityCalendar from "./AvailabilityCalendar";
 
 interface ContactPerson {
   name: string;
@@ -29,18 +30,19 @@ export default function ContactSectionAnimated({
           Book Your Stay
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-200">
-          Ready to experience {propertyName}? Contact us directly to check
-          availability and reserve your dates.
+          Ready to experience {propertyName}? Check availability and contact us
+          to reserve your dates.
         </p>
       </FadeInView>
 
       <motion.div
         ref={cardsRef}
-        className="mx-auto mt-12 max-w-md"
+        className="mx-auto mt-12 flex max-w-md flex-col gap-8"
         initial={{ opacity: 0, y: 30 }}
         animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
+        {/* Contact Card */}
         <div className="rounded-2xl border border-white/20 bg-white/95 p-8 shadow-xl backdrop-blur-sm">
           <div className="flex items-center gap-2">
             <span className="rounded-full bg-primary-100 px-3 py-1 text-xs font-medium text-primary-700">
@@ -79,29 +81,15 @@ export default function ContactSectionAnimated({
             </a>
           </div>
         </div>
-      </motion.div>
 
-      {/* <motion.div
-        className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
-      >
-        <a
-          href="/house-rules"
-          className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/90 px-6 py-3 font-medium text-neutral-700 backdrop-blur-sm transition-colors hover:bg-white hover:text-primary-700"
-        >
-          <FileText className="h-5 w-5" />
-          View House Rules
-        </a>
-        <a
-          href="/house-rules#booking-terms"
-          className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/90 px-6 py-3 font-medium text-neutral-700 backdrop-blur-sm transition-colors hover:bg-white hover:text-primary-700"
-        >
-          <Receipt className="h-5 w-5" />
-          Booking Terms
-        </a>
-      </motion.div> */}
+        {/* Availability Calendar */}
+        <div className="rounded-2xl border border-white/20 bg-white/95 p-6 shadow-xl backdrop-blur-sm">
+          <h3 className="mb-4 text-center text-lg font-semibold text-neutral-900">
+            Availability
+          </h3>
+          <AvailabilityCalendar />
+        </div>
+      </motion.div>
     </div>
   );
 }

@@ -2,7 +2,9 @@ import { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Lightbox from "yet-another-react-lightbox";
+import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 import { cloudinaryUrl } from "../lib/cloudinary";
 import { FadeInView } from "./animations";
 
@@ -10,6 +12,7 @@ interface GalleryImage {
   id: string;
   alt: string;
   category?: string;
+  caption?: string;
 }
 
 interface PhotoGalleryProps {
@@ -33,10 +36,11 @@ export default function PhotoGallery({
     setLightboxOpen(true);
   };
 
-  // Prepare slides for lightbox
+  // Prepare slides for lightbox with captions
   const slides = images.map((image) => ({
     src: cloudinaryUrl(image.id),
     alt: image.alt,
+    description: image.caption,
   }));
 
   return (
@@ -48,7 +52,8 @@ export default function PhotoGallery({
             Gallery
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-neutral-600">
-            Take a tour of our luxury mountain chalet
+            Take a tour of our luxury mountain chalet. Click any image to view
+            full size.
           </p>
         </FadeInView>
 
@@ -91,26 +96,16 @@ export default function PhotoGallery({
                     target.src = `https://placehold.co/800x600/e2e8f0/64748b?text=${encodeURIComponent(image.alt)}`;
                   }}
                 />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20" />
-                {/* Zoom icon */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <span className="rounded-full bg-white/90 p-3 shadow-lg">
-                    <svg
-                      className="h-6 w-6 text-neutral-700"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
-                      />
-                    </svg>
-                  </span>
-                </div>
+                {/* Dark vignette overlay on hover */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                {/* Caption text on hover */}
+                {image.caption && (
+                  <div className="absolute inset-0 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <p className="text-center text-lg font-medium text-white drop-shadow-lg">
+                      {image.caption}
+                    </p>
+                  </div>
+                )}
               </motion.button>
             );
           })}
@@ -143,12 +138,17 @@ export default function PhotoGallery({
         )}
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox with captions */}
       <Lightbox
         open={lightboxOpen}
         close={() => setLightboxOpen(false)}
         index={lightboxIndex}
         slides={slides}
+        plugins={[Captions]}
+        captions={{
+          showToggle: false,
+          descriptionTextAlign: "center",
+        }}
         styles={{
           container: { backgroundColor: "rgba(0, 0, 0, 0.9)" },
         }}

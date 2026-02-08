@@ -76,7 +76,7 @@ export default function HeroAnimated({
       >
         <GradientRevealText
           texts={featuredAmenities}
-          interval={3500}
+          interval={2500}
           className="text-xl font-medium text-white sm:text-2xl md:text-3xl"
         />
       </motion.div>
