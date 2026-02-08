@@ -1,9 +1,10 @@
 /**
  * API endpoint to fetch and parse Airbnb iCal feed
  * Returns reserved/booked date ranges as JSON
+ *
+ * Uses fetch() and manual iCal parsing for Cloudflare Workers compatibility
  */
 import type { APIRoute } from "astro";
-import ical from "node-ical";
 
 // Disable prerendering - this route is server-rendered on each request
 export const prerender = false;
@@ -23,32 +24,71 @@ let cache: CacheEntry | null = null;
 const CACHE_DURATION_MS = 3600000; // 1 hour
 
 /**
- * Extract reserved date ranges from parsed iCal events
+ * Parse iCal date string to ISO format
+ * Handles both DATE (YYYYMMDD) and DATE-TIME (YYYYMMDDTHHMMSSZ) formats
  */
-function extractReservedDates(
-  events: ical.CalendarResponse
-): ReservedDateRange[] {
+function parseICalDate(dateStr: string): string | null {
+  if (!dateStr) return null;
+
+  // Remove any VALUE=DATE: or similar prefixes
+  const cleanDate = dateStr.replace(/^[^:]*:/, "").trim();
+
+  // DATE-TIME format: YYYYMMDDTHHMMSSZ or YYYYMMDDTHHMMSS
+  if (cleanDate.includes("T")) {
+    const match = cleanDate.match(
+      /^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z?$/
+    );
+    if (match) {
+      const [, year, month, day, hour, min, sec] = match;
+      return new Date(
+        Date.UTC(+year, +month - 1, +day, +hour, +min, +sec)
+      ).toISOString();
+    }
+  }
+
+  // DATE format: YYYYMMDD
+  const match = cleanDate.match(/^(\d{4})(\d{2})(\d{2})$/);
+  if (match) {
+    const [, year, month, day] = match;
+    return new Date(Date.UTC(+year, +month - 1, +day)).toISOString();
+  }
+
+  return null;
+}
+
+/**
+ * Parse iCal text content and extract VEVENT date ranges
+ */
+function parseICalContent(icalText: string): ReservedDateRange[] {
   const reserved: ReservedDateRange[] = [];
 
-  for (const key in events) {
-    const event = events[key];
+  // Split into events (between BEGIN:VEVENT and END:VEVENT)
+  const eventMatches = icalText.match(
+    /BEGIN:VEVENT[\s\S]*?END:VEVENT/g
+  );
 
-    // Only process VEVENT items (skip VCALENDAR, VTIMEZONE, etc.)
-    if (event.type === "VEVENT") {
-      const vevent = event as ical.VEvent;
+  if (!eventMatches) return reserved;
 
-      if (vevent.start && vevent.end) {
-        reserved.push({
-          startDate: vevent.start.toISOString(),
-          endDate: vevent.end.toISOString(),
-        });
+  for (const eventText of eventMatches) {
+    // Extract DTSTART
+    const dtStartMatch = eventText.match(/DTSTART[^:]*:([^\r\n]+)/);
+    // Extract DTEND
+    const dtEndMatch = eventText.match(/DTEND[^:]*:([^\r\n]+)/);
+
+    if (dtStartMatch && dtEndMatch) {
+      const startDate = parseICalDate(dtStartMatch[1]);
+      const endDate = parseICalDate(dtEndMatch[1]);
+
+      if (startDate && endDate) {
+        reserved.push({ startDate, endDate });
       }
     }
   }
 
   // Sort by start date
   reserved.sort(
-    (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+    (a, b) =>
+      new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
   );
 
   return reserved;
@@ -70,11 +110,7 @@ export const GET: APIRoute = async ({ request }) => {
     }
 
     // Get the iCal URL from environment variable
-    // Try both import.meta.env and process.env for compatibility
-    const icalUrl =
-      import.meta.env.AIRBNB_ICAL_URL || process.env.AIRBNB_ICAL_URL;
-
-    console.log("[availability] iCal URL present:", !!icalUrl);
+    const icalUrl = import.meta.env.AIRBNB_ICAL_URL;
 
     if (!icalUrl) {
       console.warn("AIRBNB_ICAL_URL environment variable not set");
@@ -84,7 +120,7 @@ export const GET: APIRoute = async ({ request }) => {
           reserved: [],
         }),
         {
-          status: 200, // Return 200 with empty data rather than error
+          status: 200,
           headers: {
             "Content-Type": "application/json",
             "Cache-Control": "public, max-age=60",
@@ -93,15 +129,22 @@ export const GET: APIRoute = async ({ request }) => {
       );
     }
 
-    // Fetch and parse the iCal feed
-    // node-ical.async.fromURL handles the fetch internally
-    console.log("[availability] Fetching iCal from URL...");
-    const events = await ical.async.fromURL(icalUrl);
-    console.log("[availability] Events count:", Object.keys(events).length);
+    // Fetch the iCal feed using standard fetch() (Cloudflare Workers compatible)
+    const response = await fetch(icalUrl, {
+      headers: {
+        "User-Agent": "Alpine-Court-Chalet/1.0",
+        Accept: "text/calendar",
+      },
+    });
 
-    // Extract reserved dates
-    const reserved = extractReservedDates(events);
-    console.log("[availability] Reserved dates found:", reserved.length);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch iCal: ${response.status}`);
+    }
+
+    const icalText = await response.text();
+
+    // Parse the iCal content
+    const reserved = parseICalContent(icalText);
 
     // Update cache
     cache = {
