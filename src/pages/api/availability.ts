@@ -94,7 +94,7 @@ function parseICalContent(icalText: string): ReservedDateRange[] {
   return reserved;
 }
 
-export const GET: APIRoute = async ({ request }) => {
+export const GET: APIRoute = async ({ locals }) => {
   try {
     // Check if we have valid cached data
     const now = Date.now();
@@ -110,7 +110,10 @@ export const GET: APIRoute = async ({ request }) => {
     }
 
     // Get the iCal URL from environment variable
-    const icalUrl = import.meta.env.AIRBNB_ICAL_URL;
+    // Cloudflare runtime env vars are accessed via locals.runtime.env
+    // Fall back to import.meta.env for local development
+    const runtime = (locals as { runtime?: { env?: Record<string, string> } }).runtime;
+    const icalUrl = runtime?.env?.AIRBNB_ICAL_URL || import.meta.env.AIRBNB_ICAL_URL;
 
     if (!icalUrl) {
       console.warn("AIRBNB_ICAL_URL environment variable not set");
